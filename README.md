@@ -1,1 +1,1 @@
-# CrashLeetcode
+# HackLeetcode
