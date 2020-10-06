@@ -26,8 +26,9 @@ So actually these are the status change in the dp,and we have to keep try each f
 Base case is easy to find. When K == 1, we can only do brute force from 1 to N, so the answer is N (we need the the answer under worst situation)
 When N == 0, the answer is 0
 
-We need to use binary search speed up
-
+We need to use binary search speed up. We can know that function dp(k - 1, i - 1) is increasing when i increases and k is not change 
+while function dp(k, n - i) is decreasing when i increases and k, n not change.
+So these two functions would have a intercetion which is the answer
 
 Solution:
 
@@ -35,7 +36,7 @@ class Solution:
     def superEggDrop(self, K: int, N: int) -> int:
         def dp(k, n):
             if k == 1:
-                return n
+                return 
             if n == 0:
                 return 0
             if (k, n) in memo:
