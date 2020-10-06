@@ -28,6 +28,7 @@ When N == 0, the answer is 0
 
 We need to use binary search speed up
 
+
 Solution:
 
 class Solution:
