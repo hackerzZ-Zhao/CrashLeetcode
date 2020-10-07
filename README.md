@@ -1,1 +1,3 @@
 # HackLeetcode
+
+Record of life...
