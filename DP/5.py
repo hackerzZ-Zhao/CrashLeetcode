@@ -1,3 +1,13 @@
+Problem:
+Given a string s, return the longest palindromic substring in s.
+
+Example:
+Input: s = "babad"
+Output: "bab"
+Note: "aba" is also a valid answer.
+
+
+Solution:
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         # dp[i][j] represents whether the substring s[i:j] is palindrome
