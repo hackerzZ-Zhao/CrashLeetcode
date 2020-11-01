@@ -16,13 +16,14 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         # k = infinity
         # based on 121, we don't need to record k
-        # and here we 
         n = len(prices)
         dp = [[0 for col in range(2)] for row in range(n)]
         dp[0][0] = 0
         dp[0][1] = -prices[0]
         for i in range(1, n):
             dp[i][0] = max(dp[i - 1][0], dp[i - 1][1] + prices[i])
+            # Here since we allow to buy multiple times, so each time to need to compare dp[buy] (dp[i - 1][0] - prices[i]) and dp[keep]
+            # Pay attention! this is the difference between 121 and 122
             dp[i][1] = max(dp[i - 1][1], dp[i - 1][0] - prices[i])
             
         return dp[n - 1][0]
