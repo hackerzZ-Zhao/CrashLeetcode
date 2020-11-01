@@ -1,18 +1,3 @@
-Question:
-Say you have an array for which the ith element is the price of a given stock on day i.
-
-If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.
-
-Note that you cannot sell a stock before you buy one.
-
-Example:
-Input: [7,1,5,3,6,4]
-Output: 5
-Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-             Not 7-1 = 6, as selling price needs to be larger than buying price.
-             
-Solution:
-
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         # N = len(prices)
@@ -47,10 +32,8 @@ class Solution:
             # dp[i][k][0] initally should be == max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i])
             # since k always == 1, we can ingore it
             dp[i][0] = max(dp[i - 1][0], dp[i - 1][1] + prices[i])
-            # dp[i][k][1] initally should be == max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i])
-            # dp[i - 1][k - 1][0] == dp[i - 1][0][0] == 0
+            # since we only allow buy once, so each time we compare -prices[i] and keep (dp[i - 1][1])
             dp[i][1] = max(dp[i - 1][1], -prices[i])
             
         return dp[n - 1][0]
-        
         
